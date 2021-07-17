@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DA_QLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TruocMaHoa" Type="nvarchar" MaxLength="100" />
+    <Property Name="SauMaHoa" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="DA_QLDBModelStoreContainer">
+    <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

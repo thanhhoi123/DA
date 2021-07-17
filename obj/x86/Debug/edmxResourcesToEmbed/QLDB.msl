@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DA_QLDBModelStoreContainer" CdmEntityContainer="DA_QLDBEntities">
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="DA_QLDBModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="TruocMaHoa" ColumnName="TruocMaHoa" />
+          <ScalarProperty Name="SauMaHoa" ColumnName="SauMaHoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
