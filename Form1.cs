@@ -42,9 +42,10 @@ namespace HuffmanCoding
             History h = new History
             {
                 TruocMaHoa = rtxtInput.Text,
-                SauMaHoa = txtEncodedString.Text
+                SauMaHoa = txtEncodedString.Text,
+                ThoiGian = DateTime.Now
             };
-            using(DA_QLDBEntities db =new DA_QLDBEntities())
+            using(DACK_DB db =new DACK_DB())
             {
                 db.Histories.Add(h);
                 db.SaveChanges();
@@ -76,9 +77,10 @@ namespace HuffmanCoding
             History h = new History
             {
                 TruocMaHoa = rtxtInput.Text,
-                SauMaHoa = txtEncodedString.Text
+                SauMaHoa = txtEncodedString.Text,
+                ThoiGian = DateTime.Now
             };
-            using (DA_QLDBEntities db = new DA_QLDBEntities())
+            using (DACK_DB db = new DACK_DB())
             {
                 db.Histories.Add(h);
                 db.SaveChanges();

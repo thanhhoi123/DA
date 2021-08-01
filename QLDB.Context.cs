@@ -13,10 +13,10 @@ namespace HuffmanCoding
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DA_QLDBEntities : DbContext
+    public partial class DACK_DB : DbContext
     {
-        public DA_QLDBEntities()
-            : base("name=DA_QLDBEntities")
+        public DACK_DB()
+            : base("name=DACK_DB")
         {
         }
     

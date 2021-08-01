@@ -19,14 +19,14 @@ namespace HuffmanCoding
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            DA_QLDBEntities db = new DA_QLDBEntities();
+            DACK_DB db = new DACK_DB();
             var query = from p in db.Histories select p;
             dgvHistory.DataSource = query.ToList();
         }
 
         private void butSearch_Click(object sender, EventArgs e)
         {
-            DA_QLDBEntities db = new DA_QLDBEntities();
+            DACK_DB db = new DACK_DB();
             var query = db.Histories.Where(p => p.TruocMaHoa.Contains(txtSearch.Text) || p.SauMaHoa.Contains(txtSearch.Text));
             dgvHistory.DataSource = query.ToList();
         }
@@ -35,11 +35,11 @@ namespace HuffmanCoding
         {
             if(dgvHistory.SelectedRows.Count > 0)
             {
-                DA_QLDBEntities db = new DA_QLDBEntities();
+                DACK_DB db = new DACK_DB();
                 foreach(DataGridViewRow i in dgvHistory.SelectedRows)
                 {
-                    int STT = Convert.ToInt32(i.Cells["STT"].Value);                    
-                    History Mydel = db.Histories.Find(STT);                    
+                    DateTime ThoiGian = Convert.ToDateTime(i.Cells["ThoiGian"].Value);                    
+                    History Mydel = db.Histories.Find(ThoiGian);                    
                     db.Histories.Remove(Mydel);
                     db.SaveChanges();
                 }

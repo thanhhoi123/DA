@@ -4,32 +4,32 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DA_QLDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DACKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="History">
           <Key>
-            <PropertyRef Name="STT" />
+            <PropertyRef Name="ThoiGian" />
           </Key>
-          <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TruocMaHoa" Type="nvarchar" MaxLength="100" />
-          <Property Name="SauMaHoa" Type="nvarchar" MaxLength="100" />
+          <Property Name="SauMaHoa" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThoiGian" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="DA_QLDBModelStoreContainer">
+        <EntityContainer Name="DACKModelStoreContainer">
           <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DA_QLDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DACKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="History">
           <Key>
-            <PropertyRef Name="STT" />
+            <PropertyRef Name="ThoiGian" />
           </Key>
-          <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TruocMaHoa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="SauMaHoa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SauMaHoa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityContainer Name="DA_QLDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DACK_DB" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Histories" EntityType="Self.History" />
         </EntityContainer>
       </Schema>
@@ -37,13 +37,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DA_QLDBModelStoreContainer" CdmEntityContainer="DA_QLDBEntities">
+        <EntityContainerMapping StorageEntityContainer="DACKModelStoreContainer" CdmEntityContainer="DACK_DB">
           <EntitySetMapping Name="Histories">
-            <EntityTypeMapping TypeName="DA_QLDBModel.History">
+            <EntityTypeMapping TypeName="DACKModel.History">
               <MappingFragment StoreEntitySet="History">
-                <ScalarProperty Name="STT" ColumnName="STT" />
                 <ScalarProperty Name="TruocMaHoa" ColumnName="TruocMaHoa" />
                 <ScalarProperty Name="SauMaHoa" ColumnName="SauMaHoa" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

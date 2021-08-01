@@ -14,8 +14,8 @@ namespace HuffmanCoding
     
     public partial class History
     {
-        public int STT { get; set; }
         public string TruocMaHoa { get; set; }
         public string SauMaHoa { get; set; }
+        public System.DateTime ThoiGian { get; set; }
     }
 }
